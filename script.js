@@ -61,3 +61,14 @@ const button6 = document.querySelector('#button6');
 const button7 = document.querySelector('#button7');
 const button8 = document.querySelector('#button8');
 const button9 = document.querySelector('#button9');
+
+// Store the arithmetic operator buttons in variables
+const addButton = document.querySelector('#addButton');
+const subtractButton = document.querySelector('#subtractButton');
+const multiplyButton = document.querySelector('#multiplyButton');
+const divideButton = document.querySelector('#divideButton');
+
+// Store the clear and other function buttons in variables
+const clearButton = document.querySelector('#clearButton');
+const deleteButton = document.querySelector('#deleteButton');
+const equalsButton = document.querySelector('#equalsButton');
