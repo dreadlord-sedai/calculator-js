@@ -1,54 +1,8 @@
-// Arithmetic functions
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
-}
-
-let a;
-let operator;
-let b;
-
-function operate(a,operator,b) {
-  switch (operator) {
-    case '+':
-      return add(a,b);
-    case '-':
-      return subtract(a,b);
-    case '*':
-      return multiply(a,b);
-    case '/':
-      return divide(a,b);
-  }
-}
-
-
-// Display functions
-function clearDisplay() {
-    
-}
-
-function deleteChar() {
-
-}
-
-function appendChar() {
-
-}
-
-function calculate() {
-
-}
+// Global variables
+let displayValue = '';
+let firstOperand = null;
+let secondOperand = null;
+let operator = null;
 
 //  Store the the number of the buttons in variables
 const button0 = document.querySelector('#button0');
@@ -72,5 +26,76 @@ const divideButton = document.querySelector('#divideButton');
 const clearButton = document.querySelector('#clearButton');
 const deleteButton = document.querySelector('#deleteButton');
 const equalsButton = document.querySelector('#equalsButton');
+const numberButtons = document.querySelectorAll('.numberButton');
 
+// Select all calculator buttons
+const calculatorButtons = document.querySelectorAll('.btn');
+
+// Listen for User Input
+window.addEventListener('keydown', handleKeyboardInput);  // Fix the event name and function reference
+clearButton.addEventListener('click', clearDisplay);
+deleteButton.addEventListener('click', deleteChar);
+equalsButton.addEventListener('click', calculate);
+
+// Listen for Number Input
+numberButtons.forEach((button) =>
+    button.addEventListener('click', () => appendNumber(button.textContent))
+  )
+
+// Listen for Operator Input
+operatorButtons.forEach((button) =>
+ button.addEventListener('click', () => setOperation(button.textContent))
+  )
+
+// Handle User Input
+function handleKeyBoardInput(event) {
+  console.log(event.key);
+}
+
+// Arithmetic functions
+function add(firstOperand, secondOperand) {
+  return firstOperand + secondOperand;
+}
+
+function subtract(firstOperand, secondOperand) {
+  return firstOperand - secondOperand;
+}
+
+function multiply(firstOperand, secondOperand) {
+  return firstOperand * secondOperand;
+}
+
+function divide(firstOperand, secondOperand) {
+  return firstOperand / secondOperand;
+}
+
+function operate(firstOperand, secondOperand, operator) {
+  switch (operator) {
+    case '+':
+      return add(firstOperand, secondOperand);
+    case '-':
+      return subtract(firstOperand, secondOperand);
+    case 'x':
+      return multiply(firstOperand, secondOperand);
+    case '/':
+      return divide(firstOperand, secondOperand);
+  }
+}
+
+// Display functions
+function clearDisplay() {
+
+}
+
+function deleteChar() {
+
+}
+
+function appendChar() {
+
+}
+
+function calculate() {
+
+}
 
