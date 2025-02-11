@@ -1,16 +1,16 @@
 /* Body styling */
-.body {
-    background-color: #0B192C;
-    color: #ffffff;
-    font-family: 'Roboto', sans-serif;
+body {
+    background-color: #455365 !important;
+    color: #ffffff !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 /* Title styling */
-h1 {
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: #00ff9d;
-    text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+.title h1 {
+    font-size: 3.5rem !important;
+    font-weight: 700 !important;
+    color: #FF6500 !important;
+    font-family: benguiat !important;
 }
 
 /* Calculator container */
