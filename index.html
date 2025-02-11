@@ -16,29 +16,29 @@
                     <input type="text" id="display" disabled>
                 </div>
                 <div class="button-grid">
-                    <button class="btn btn-danger" onclick="clearDisplay()">C</button>
-                    <button class="btn btn-danger" onclick="deleteChar()">DEL</button>
-                    <button class="btn btn-danger" onclick="appendChar('%')">%</button>
-                    <button class="btn btn-danger" onclick="appendChar('/')">/</button>
+                    <button class="btn btn-danger" id="buttonClear" onclick="clearDisplay()">C</button>
+                    <button class="btn btn-danger" id="buttonDelete" onclick="deleteChar()">DEL</button>
+                    <button class="btn btn-danger" id="buttonPercent" onclick="appendChar('%')">%</button>
+                    <button class="btn btn-danger" id="buttonDivide" onclick="appendChar('/')">/</button>
 
-                    <button class="btn btn-light" onclick="appendChar('7')">7</button>
-                    <button class="btn btn-light" onclick="appendChar('8')">8</button>
-                    <button class="btn btn-light" onclick="appendChar('9')">9</button>
-                    <button class="btn btn-danger" onclick="appendChar('*')">*</button>
+                    <button class="btn btn-light" id="button7" onclick="appendChar('7')">7</button>
+                    <button class="btn btn-light" id="button8" onclick="appendChar('8')">8</button>
+                    <button class="btn btn-light" id="button9" onclick="appendChar('9')">9</button>
+                    <button class="btn btn-danger" id="buttonMultiply" onclick="appendChar('*')">*</button>
 
-                    <button class="btn btn-light" onclick="appendChar('4')">4</button>
-                    <button class="btn btn-light" onclick="appendChar('5')">5</button>
-                    <button class="btn btn-light" onclick="appendChar('6')">6</button>
-                    <button class="btn btn-danger" onclick="appendChar('-')">-</button>
+                    <button class="btn btn-light" id="button4" onclick="appendChar('4')">4</button>
+                    <button class="btn btn-light" id="button5" onclick="appendChar('5')">5</button>
+                    <button class="btn btn-light" id="button6" onclick="appendChar('6')">6</button>
+                    <button class="btn btn-danger" id="buttonMinus" onclick="appendChar('-')">-</button>
 
-                    <button class="btn btn-light" onclick="appendChar('1')">1</button>
-                    <button class="btn btn-light" onclick="appendChar('2')">2</button>
-                    <button class="btn btn-light" onclick="appendChar('3')">3</button>
-                    <button class="btn btn-danger" onclick="appendChar('+')">+</button>
+                    <button class="btn btn-light" id="button1" onclick="appendChar('1')">1</button>
+                    <button class="btn btn-light" id="button2" onclick="appendChar('2')">2</button>
+                    <button class="btn btn-light" id="button3" onclick="appendChar('3')">3</button>
+                    <button class="btn btn-danger" id="buttonPlus" onclick="appendChar('+')">+</button>
 
-                    <button class="btn btn-light" onclick="appendChar('0')">0</button>
-                    <button class="btn btn-light" onclick="appendChar('.')">.</button>
-                    <button class="btn btn-danger" onclick="calculate()">=</button>
+                    <button class="btn btn-light" id="button0" onclick="appendChar('0')">0</button>
+                    <button class="btn btn-light" id="buttonDot" onclick="appendChar('.')">.</button>
+                    <button class="btn btn-danger" id="buttonEquals" onclick="calculate()">=</button>
 
                 </div>
             </div>
