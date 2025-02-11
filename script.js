@@ -35,7 +35,7 @@ function operate(a,operator,b) {
 
 // Display functions
 function clearDisplay() {
-
+    
 }
 
 function deleteChar() {
