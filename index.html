@@ -25,47 +25,54 @@
         <div class="button-grid">
             <!-- Row 1 -->
             <div class="row g-2 mb-2">
-                <div class="col-3"><button class="btn btn-danger w-100" onclick="clearDisplay()">C</button></div>
-                <div class="col-3"><button class="btn btn-danger w-100" onclick="deleteChar()">DEL</button></div>
-                <div class="col-3"><button class="btn btn-danger w-100" onclick="appendChar('%')">%</button></div>
-                <div class="col-3"><button class="btn btn-danger w-100" onclick="appendChar('/')">/</button></div>
+                <div class="col-3"><button id="clearButton" class="btn btn-special w-100" onclick="clearDisplay()">C</button></div>
+                <div class="col-3"><button id="deleteButton" class="btn btn-special w-100" onclick="deleteChar()">DEL</button></div>
+                <div class="col-3"><button id="modulusButton" class="btn btn-special w-100" onclick="appendChar('%')">%</button></div>
+                <div class="col-3"><button id="divideButton" class="btn btn-danger w-100" onclick="appendChar('/')">/</button></div>
             </div>
-            
+        
             <!-- Row 2 -->
             <div class="row g-2 mb-2">
-                <div class="col-3"><button class="btn btn-light w-100" onclick="appendChar('7')">7</button></div>
-                <div class="col-3"><button class="btn btn-light w-100" onclick="appendChar('8')">8</button></div>
-                <div class="col-3"><button class="btn btn-light w-100" onclick="appendChar('9')">9</button></div>
-                <div class="col-3"><button class="btn btn-danger w-100" onclick="appendChar('*')">*</button></div>
+                <div class="col-3"><button id="button7" class="btn btn-light w-100" onclick="appendChar('7')">7</button></div>
+                <div class="col-3"><button id="button8" class="btn btn-light w-100" onclick="appendChar('8')">8</button></div>
+                <div class="col-3"><button id="button9" class="btn btn-light w-100" onclick="appendChar('9')">9</button></div>
+                <div class="col-3"><button id="multiplyButton" class="btn btn-danger w-100" onclick="appendChar('*')">*</button></div>
             </div>
-            
+        
             <!-- Row 3 -->
             <div class="row g-2 mb-2">
-                <div class="col-3"><button class="btn btn-light w-100" onclick="appendChar('4')">4</button></div>
-                <div class="col-3"><button class="btn btn-light w-100" onclick="appendChar('5')">5</button></div>
-                <div class="col-3"><button class="btn btn-light w-100" onclick="appendChar('6')">6</button></div>
-                <div class="col-3"><button class="btn btn-danger w-100" onclick="appendChar('-')">-</button></div>
+                <div class="col-3"><button id="button4" class="btn btn-light w-100" onclick="appendChar('4')">4</button></div>
+                <div class="col-3"><button id="button5" class="btn btn-light w-100" onclick="appendChar('5')">5</button></div>
+                <div class="col-3"><button id="button6" class="btn btn-light w-100" onclick="appendChar('6')">6</button></div>
+                <div class="col-3"><button id="subtractButton" class="btn btn-danger w-100" onclick="appendChar('-')">-</button></div>
             </div>
-            
+        
             <!-- Row 4 -->
             <div class="row g-2 mb-2">
-                <div class="col-3"><button class="btn btn-light w-100" onclick="appendChar('1')">1</button></div>
-                <div class="col-3"><button class="btn btn-light w-100" onclick="appendChar('2')">2</button></div>
-                <div class="col-3"><button class="btn btn-light w-100" onclick="appendChar('3')">3</button></div>
-                <div class="col-3"><button class="btn btn-danger w-100" onclick="appendChar('+')">+</button></div>
+                <div class="col-3"><button id="button1" class="btn btn-light w-100" onclick="appendChar('1')">1</button></div>
+                <div class="col-3"><button id="button2" class="btn btn-light w-100" onclick="appendChar('2')">2</button></div>
+                <div class="col-3"><button id="button3" class="btn btn-light w-100" onclick="appendChar('3')">3</button></div>
+                <div class="col-3"><button id="addButton" class="btn btn-danger w-100" onclick="appendChar('+')">+</button></div>
             </div>
-            
+        
             <!-- Row 5 -->
             <div class="row g-2">
-                <div class="col-6"><button class="btn btn-light w-100" onclick="appendChar('0')">0</button></div>
-                <div class="col-3"><button class="btn btn-light w-100" onclick="appendChar('.')">.</button></div>
-                <div class="col-3"><button class="btn btn-danger w-100" onclick="calculate()">=</button></div>
+                <div class="col-6"><button id="button0" class="btn btn-light w-100" onclick="appendChar('0')">0</button></div>
+                <div class="col-3"><button id="decimalButton" class="btn btn-light w-100" onclick="appendChar('.')">.</button></div>
+                <div class="col-3"><button id="equalsButton" class="btn btn-equals w-100" onclick="calculate()">=</button></div>
             </div>
         </div>
+        
     </div>
 
     <div class="footer mt-4 d-flex">
-        <p class="text-center">Created by <a href="https://github.com/dreadlord-sedai" target="_blank">dreadlord_sedai <i class="fab fa-github"></i></a></p>
+        <p class="text-center"> Copyright ©
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+             <a href="https://github.com/dreadlord-sedai" 
+             target="_blank">dreadlord_sedai <i class="fab fa-github"></i></a>
+        </p>
     </div>
 
     <script src="script.js"></script>

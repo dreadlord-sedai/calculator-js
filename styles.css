@@ -1,6 +1,6 @@
 /* Body styling */
 body {
-    background-color: #455365 !important;
+    background: linear-gradient(145deg, #1a237e, #0d47a1) !important; /* Dark indigo to deep blue */
     color: #ffffff !important;
     font-family: 'Roboto', sans-serif !important;
 }
@@ -10,13 +10,15 @@ body {
     font-size: 3.5rem !important;
     font-weight: 700 !important;
     color: #FF6500 !important;
-    font-family: benguiat !important;
+    font-family: 'Borisna', sans-serif !important;
+    text-shadow: #cd3202d7 2px 0 10px !important;
+    text-shadow: 0 0 10px rgba(255, 101, 0, 0.5); /* Subtle glow effect */
 }
 
 /* Calculator container */
 .calculator {
     width: 420px;
-    background: linear-gradient(145deg, #1E3E62, #153a64);
+    background-color: #212121; /* Matte black */
     border-radius: 30px;
     border: 2px solid #3d3d3d;
     padding: 2rem;
@@ -25,7 +27,8 @@ body {
 
 /* Display styling */
 .display {
-    background-color: #1a1a1a;
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
     padding: 1.5rem;
     border: 2px solid #3d3d3d;
     border-radius: 15px;
@@ -50,16 +53,17 @@ body {
 .btn {
     height: 80px !important;
     font-size: 1.5rem !important;
-    border: 10px solid rgba(173, 173, 173, 0.1) !important;
-    border-radius: 15px !important;
+    border: 2px solid rgba(173, 173, 173, 0.1) !important;
+    border-radius: 20px !important; /* Increased roundness */
     transition: all 0.2s ease !important;
     position: relative !important;
     overflow: hidden !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Soft shadows */
 }
 
 /* Light buttons (numbers) */
 .btn-light {
-    background: linear-gradient(145deg, #f97e2c, #FF6500) !important;
+    background: linear-gradient(145deg, #f97e2c, #FF6500) !important; /* Gradient for depth */
     color: #ffffff !important;
 }
 
@@ -71,7 +75,7 @@ body {
 
 /* Danger buttons (operators) */
 .btn-danger {
-    background: linear-gradient(145deg, #ff4949, #ff0000) !important;
+    background: linear-gradient(145deg, #ff4949, #ff0000) !important; /* Slightly deeper red */
     color: #ffffff !important;
     font-weight: 500 !important;
 }
@@ -82,9 +86,33 @@ body {
     border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
+/* Special buttons (C, DEL, %) */
+.btn-special {
+    background: linear-gradient(145deg, #8b0000, #a52a2a) !important; /* Darker red or maroon */
+    color: #ffffff !important;
+}
+
+.btn-special:hover {
+    background: linear-gradient(145deg, #5a0000, #7a1a1a) !important;
+    transform: translateY(-2px) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Equals button */
+.btn-equals {
+    background: linear-gradient(145deg, #00e5ff, #00b8d4) !important; /* Bright cyan or electric blue */
+    color: #ffffff !important;
+}
+
+.btn-equals:hover {
+    background: linear-gradient(145deg, #00b8d4, #0097a7) !important;
+    transform: translateY(-2px) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 /* Active state for all buttons */
 .btn:active {
-    transform: translateY(1px) !important;
+    transform: scale(0.95) !important; /* Slight scale animation */
     filter: brightness(0.9) !important;
 }
 
@@ -110,6 +138,14 @@ body {
     opacity: 1 !important;
 }
 
+/* Footer styling */
+.footer {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #ff9028 !important;
+    font-family: 'Borisna', sans-serif !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 480px) {
     .calculator {
@@ -126,4 +162,10 @@ body {
     .display-text {
         font-size: 2rem !important;
     }
+}
+
+/* Custom font */
+@font-face {
+    font-family: 'Borisna';
+    src: url('fonts/Borisna.ttf') format('truetype');
 }
