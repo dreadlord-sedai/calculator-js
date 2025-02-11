@@ -1,3 +1,4 @@
+// Arithmetic functions
 function add(a, b) {
   return a + b;
 }
@@ -31,3 +32,20 @@ function operate(a,operator,b) {
   }
 }
 
+
+// Display functions
+function clearDisplay() {
+
+}
+
+function deleteChar() {
+
+}
+
+function appendChar() {
+
+}
+
+function calculate() {
+
+}
