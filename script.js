@@ -1,5 +1,5 @@
 // Global variables
-const displayValue = '';
+let displayValue = '';
 let firstOperand = null;
 let secondOperand = null;
 let operator = null;
@@ -75,6 +75,7 @@ function clearDisplay() {
   firstOperand = null;
   secondOperand = null;
   operator = null;
+  updateDisplay();
 }
 
 function deleteChar() {
