@@ -33,7 +33,7 @@ The Calculator project is a simple web-based application that allows users to pe
 - **HTML5**: Provides the structure of the calculator.
 - **CSS3**: Styles the calculator for a modern and user-friendly interface.
 - **JavaScript**: Implements the logic for performing calculations and handling user interactions.
-- - **Bootsrap**: Mobile responsiveness.
+- **Bootsrap**: Mobile responsiveness.
 
 <p align="left">
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" width="40" height="40"/>
@@ -91,7 +91,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 For any questions or feedback, feel free to reach out:
 
 - **Dahami Fabio**: [dahamifabbio@gmail.com](mailto:dahamifabbio@gmail.com)
-- **GitHub**: [[dreadlord_sedai]](https://github.com/[dreadlord_sedai])
+- **GitHub**: [dreadlord_sedai](https://github.com/[dreadlord_sedai])
 
 
 
