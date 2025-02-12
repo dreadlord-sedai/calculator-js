@@ -99,7 +99,6 @@ function calculate() {
   if (secondOperand === null) {
     secondOperand = displayValue;
   }
-  console.log(firstOperand, secondOperand, operator);
   displayValue = operate(firstOperand, secondOperand, operator);
   currentOperand = displayValue;
   firstOperand = null;
@@ -107,7 +106,6 @@ function calculate() {
   operator = null;
   updateDisplay();
 }
-
 
 
 function setOperation(op) {
@@ -123,7 +121,9 @@ if (currentOperand === null) {
   }
   displayValue = '';
 } else {
-  currentOperand = displayValue;
+  // If the current operand is not null, then we are in the middle of a calculation
+  // For continous calculations
+  secondOperand = displayValue;
   firstOperand = currentOperand;
   calculate();
   displayValue = '';
