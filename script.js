@@ -108,10 +108,15 @@ function appendNumber(number) {
 function setOperation(op) {
   displayValue = displayValue.trim();
 
+ 
   if (firstOperand === null) {
     firstOperand = displayValue;
     displayValue = '';
   } else if (secondOperand === null) {
+    secondOperand = displayValue;
+    displayValue = '';
+    calculate();
+  }else if (currentOperand !== null) {
     secondOperand = displayValue;
     displayValue = '';
     calculate();
