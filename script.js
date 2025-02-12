@@ -84,15 +84,37 @@ function deleteChar() {
 
 
 function calculate() {
-
+  if (firstOperand === null || operator === null) {
+    return;
+  }
+  if (secondOperand === null) {
+    secondOperand = Number(displayValue);
+  }
+  displayValue = operate(firstOperand, secondOperand, operator);
+  firstOperand = null;
+  secondOperand = null;
+  operator = null;
+  updateDisplay();
 }
 
 function appendNumber(number) {
-  
+  displayValue += number;
+  updateDisplay(); 
 }
 
-function setOperation(operator) {
-  
+function setOperation(op) {
+  displayValue = displayValue.trim();
+
+  if (firstOperand === null) {
+    firstOperand = Number(displayValue);
+    displayValue = '';
+  } else if (secondOperand === null) {
+    secondOperand = Number(displayValue);
+    displayValue = '';
+    calculate();
+  }
+
+  operator = op; // Correctly set the global operator variable
 }
 
 function updateDisplay() {
@@ -100,6 +122,25 @@ function updateDisplay() {
   displayText.textContent = displayValue;
 }
 
+function updateCalculator() {
+  const calculationText = document.querySelector('#calculationText');
+  calculationText.textContent = `${firstOperand} ${operator} ${secondOperand}`;
+}
+
+
+// Operator functions
+function operate(firstOperand, secondOperand, operator) {
+  switch (operator) {
+    case '+':
+      return add(firstOperand, secondOperand);
+    case '-':
+      return subtract(firstOperand, secondOperand);
+    case 'x':
+      return multiply(firstOperand, secondOperand);
+    case '/':
+      return divide(firstOperand, secondOperand);
+  }
+}
 
 
 // Arithmetic functions
@@ -122,17 +163,4 @@ function divide(firstOperand, secondOperand) {
 
 
 
-// Operator functions
-function operate(firstOperand, secondOperand, operator) {
-  switch (operator) {
-    case '+':
-      return add(firstOperand, secondOperand);
-    case '-':
-      return subtract(firstOperand, secondOperand);
-    case 'x':
-      return multiply(firstOperand, secondOperand);
-    case '/':
-      return divide(firstOperand, secondOperand);
-  }
-}
 
