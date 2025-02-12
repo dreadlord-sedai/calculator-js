@@ -3,6 +3,7 @@ let displayValue = '';
 let firstOperand = null;
 let secondOperand = null;
 let operator = null;
+let currentOperand = null;
 
 //  Store the the number of the buttons in variables
 const button0 = document.querySelector('#button0');
@@ -80,6 +81,7 @@ function clearDisplay() {
 
 function deleteChar() {
   displayValue = displayValue.slice(0, -1);
+  updateDisplay();
 }
 
 
@@ -88,9 +90,10 @@ function calculate() {
     return;
   }
   if (secondOperand === null) {
-    secondOperand = Number(displayValue);
+    secondOperand = displayValue;
   }
   displayValue = operate(firstOperand, secondOperand, operator);
+  currentOperand = displayValue;
   firstOperand = null;
   secondOperand = null;
   operator = null;
@@ -106,10 +109,10 @@ function setOperation(op) {
   displayValue = displayValue.trim();
 
   if (firstOperand === null) {
-    firstOperand = Number(displayValue);
+    firstOperand = displayValue;
     displayValue = '';
   } else if (secondOperand === null) {
-    secondOperand = Number(displayValue);
+    secondOperand = displayValue;
     displayValue = '';
     calculate();
   }
@@ -130,6 +133,9 @@ function updateCalculator() {
 
 // Operator functions
 function operate(firstOperand, secondOperand, operator) {
+  firstOperand = Number(firstOperand);
+  secondOperand = Number(secondOperand);
+
   switch (operator) {
     case '+':
       return add(firstOperand, secondOperand);
