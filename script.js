@@ -128,3 +128,6 @@ function operate(firstOperand, secondOperand, operator) {
       return secondOperand;
   }
 }
+
+
+// To do: Add decimal points and its functionality
