@@ -85,14 +85,21 @@ function deleteChar() {
   updateDisplay();
 }
 
+function appendNumber(number) {
+  displayValue += number;
+  updateDisplay(); 
+}
+
 
 function calculate() {
   if (firstOperand === null || operator === null) {
     return;
   }
+
   if (secondOperand === null) {
     secondOperand = displayValue;
   }
+  console.log(firstOperand, secondOperand, operator);
   displayValue = operate(firstOperand, secondOperand, operator);
   currentOperand = displayValue;
   firstOperand = null;
@@ -101,16 +108,14 @@ function calculate() {
   updateDisplay();
 }
 
-function appendNumber(number) {
-  displayValue += number;
-  updateDisplay(); 
-}
+
 
 function setOperation(op) {
   displayValue = displayValue.toString().trim();
 
 if (currentOperand === null) {
   if (firstOperand === null) {
+
     firstOperand = displayValue;
   } else {
     secondOperand = displayValue;
@@ -118,6 +123,7 @@ if (currentOperand === null) {
   }
   displayValue = '';
 } else {
+  currentOperand = displayValue;
   firstOperand = currentOperand;
   calculate();
   displayValue = '';
