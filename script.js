@@ -1,5 +1,5 @@
 // Global variables
-let displayValue = '';
+const displayValue = '';
 let firstOperand = null;
 let secondOperand = null;
 let operator = null;
@@ -27,30 +27,79 @@ const clearButton = document.querySelector('#clearButton');
 const deleteButton = document.querySelector('#deleteButton');
 const equalsButton = document.querySelector('#equalsButton');
 const numberButtons = document.querySelectorAll('.numberButton');
+const operatorButtons = document.querySelectorAll('.operatorButton');
 
 // Select all calculator buttons
 const calculatorButtons = document.querySelectorAll('.btn');
 
+
+
+/*User Input */
+
 // Listen for User Input
-window.addEventListener('keydown', handleKeyboardInput);  // Fix the event name and function reference
+window.addEventListener('keydown', handleKeyboardInput);  
 clearButton.addEventListener('click', clearDisplay);
 deleteButton.addEventListener('click', deleteChar);
 equalsButton.addEventListener('click', calculate);
 
-// Listen for Number Input
 numberButtons.forEach((button) =>
     button.addEventListener('click', () => appendNumber(button.textContent))
   )
 
-// Listen for Operator Input
 operatorButtons.forEach((button) =>
  button.addEventListener('click', () => setOperation(button.textContent))
   )
 
-// Handle User Input
-function handleKeyBoardInput(event) {
-  console.log(event.key);
+
+
+/* Handle User Input */
+
+// Display functions
+function handleKeyboardInput(event) {
+  const key = event.key;
+  if (key >= 0 && key <= 9) {
+    appendNumber(key);
+  } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+    setOperation(key);
+  } else if (key === 'Enter' || key === '=') {
+    calculate();
+  } else if (key === 'Backspace') {
+    deleteChar();
+  } else if (key === 'Escape') {
+    clearDisplay();
+  }
 }
+
+function clearDisplay() {
+  displayValue = '';
+  firstOperand = null;
+  secondOperand = null;
+  operator = null;
+}
+
+function deleteChar() {
+  displayValue = displayValue.slice(0, -1);
+}
+
+
+function calculate() {
+
+}
+
+function appendNumber(number) {
+  
+}
+
+function setOperation(operator) {
+  
+}
+
+function updateDisplay() {
+  const displayText = document.querySelector('#displayText');
+  displayText.textContent = displayValue;
+}
+
+
 
 // Arithmetic functions
 function add(firstOperand, secondOperand) {
@@ -69,6 +118,10 @@ function divide(firstOperand, secondOperand) {
   return firstOperand / secondOperand;
 }
 
+
+
+
+// Operator functions
 function operate(firstOperand, secondOperand, operator) {
   switch (operator) {
     case '+':
@@ -80,22 +133,5 @@ function operate(firstOperand, secondOperand, operator) {
     case '/':
       return divide(firstOperand, secondOperand);
   }
-}
-
-// Display functions
-function clearDisplay() {
-
-}
-
-function deleteChar() {
-
-}
-
-function appendChar() {
-
-}
-
-function calculate() {
-
 }
 
