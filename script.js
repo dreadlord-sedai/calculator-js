@@ -76,6 +76,7 @@ function clearDisplay() {
   firstOperand = null;
   secondOperand = null;
   operator = null;
+  currentOperand = null;
   updateDisplay();
 }
 
@@ -106,21 +107,21 @@ function appendNumber(number) {
 }
 
 function setOperation(op) {
-  displayValue = displayValue.trim();
+  displayValue = displayValue.toString().trim();
 
- 
+if (currentOperand === null) {
   if (firstOperand === null) {
     firstOperand = displayValue;
-    displayValue = '';
-  } else if (secondOperand === null) {
+  } else {
     secondOperand = displayValue;
-    displayValue = '';
-    calculate();
-  }else if (currentOperand !== null) {
-    secondOperand = displayValue;
-    displayValue = '';
     calculate();
   }
+  displayValue = '';
+} else {
+  firstOperand = currentOperand;
+  calculate();
+  displayValue = '';
+}
 
   operator = op; // Correctly set the global operator variable
 }
