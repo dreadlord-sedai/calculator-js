@@ -5,57 +5,30 @@ let secondOperand = null;
 let operator = null;
 let currentOperand = null;
 
-//  Store the the number of the buttons in variables
-const button0 = document.querySelector('#button0');
-const button1 = document.querySelector('#button1');
-const button2 = document.querySelector('#button2');
-const button3 = document.querySelector('#button3');
-const button4 = document.querySelector('#button4');
-const button5 = document.querySelector('#button5');
-const button6 = document.querySelector('#button6');
-const button7 = document.querySelector('#button7');
-const button8 = document.querySelector('#button8');
-const button9 = document.querySelector('#button9');
-
-// Store the arithmetic operator buttons in variables
-const addButton = document.querySelector('#addButton');
-const subtractButton = document.querySelector('#subtractButton');
-const multiplyButton = document.querySelector('#multiplyButton');
-const divideButton = document.querySelector('#divideButton');
-
-// Store the clear and other function buttons in variables
-const clearButton = document.querySelector('#clearButton');
-const deleteButton = document.querySelector('#deleteButton');
-const equalsButton = document.querySelector('#equalsButton');
+// Store the number buttons in variables
 const numberButtons = document.querySelectorAll('.numberButton');
 const operatorButtons = document.querySelectorAll('.operatorButton');
 
-// Select all calculator buttons
-const calculatorButtons = document.querySelectorAll('.btn');
+// Store the function buttons
+const clearButton = document.querySelector('#clearButton');
+const deleteButton = document.querySelector('#deleteButton');
+const equalsButton = document.querySelector('#equalsButton');
 
-
-
-/*User Input */
-
-// Listen for User Input
-window.addEventListener('keydown', handleKeyboardInput);  
+// Listen for user input
+window.addEventListener('keydown', handleKeyboardInput);
 clearButton.addEventListener('click', clearDisplay);
 deleteButton.addEventListener('click', deleteChar);
 equalsButton.addEventListener('click', calculate);
 
 numberButtons.forEach((button) =>
-    button.addEventListener('click', () => appendNumber(button.textContent))
-  )
+  button.addEventListener('click', () => appendNumber(button.textContent))
+);
 
 operatorButtons.forEach((button) =>
- button.addEventListener('click', () => setOperation(button.textContent))
-  )
+  button.addEventListener('click', () => setOperation(button.textContent))
+);
 
-
-
-/* Handle User Input */
-
-// Display functions
+// Handle keyboard input
 function handleKeyboardInput(event) {
   const key = event.key;
   if (key >= 0 && key <= 9) {
@@ -71,6 +44,7 @@ function handleKeyboardInput(event) {
   }
 }
 
+// Clear display function
 function clearDisplay() {
   displayValue = '';
   firstOperand = null;
@@ -78,107 +52,79 @@ function clearDisplay() {
   operator = null;
   currentOperand = null;
   updateDisplay();
+  updateCalculator();
 }
 
+// Delete last character function
 function deleteChar() {
   displayValue = displayValue.slice(0, -1);
   updateDisplay();
 }
 
+// Append number to display
 function appendNumber(number) {
+  if (displayValue.length >= 10) return; // Limit input length
   displayValue += number;
-  updateDisplay(); 
-}
-
-
-function calculate() {
-  if (firstOperand === null || operator === null) {
-    return;
-  }
-
-  if (secondOperand === null) {
-    secondOperand = displayValue;
-  }
-  displayValue = operate(firstOperand, secondOperand, operator);
-  currentOperand = displayValue;
-  firstOperand = null;
-  secondOperand = null;
-  operator = null;
   updateDisplay();
 }
 
-
+// Set operation function
 function setOperation(op) {
-  displayValue = displayValue.toString().trim();
-
-if (currentOperand === null) {
-  if (firstOperand === null) {
-
-    firstOperand = displayValue;
-  } else {
-    secondOperand = displayValue;
-    calculate();
+  if (operator !== null && displayValue !== '') {
+    calculate(); // If there's an operation ongoing, calculate first
   }
+
+  firstOperand = displayValue;
+  operator = op === 'x' ? '*' : op; // Normalize 'x' to '*'
   displayValue = '';
-} else {
-  // If the current operand is not null, then we are in the middle of a calculation
-  // For continous calculations
+  updateCalculator();
+}
+
+// Perform calculation
+function calculate() {
+  if (!firstOperand || !operator || displayValue === '') return;
+
   secondOperand = displayValue;
-  firstOperand = currentOperand;
-  calculate();
-  displayValue = '';
+  displayValue = operate(firstOperand, secondOperand, operator);
+  
+  firstOperand = displayValue;
+  secondOperand = null;
+  operator = null;
+  updateDisplay();
+  updateCalculator();
 }
 
-  operator = op; // Correctly set the global operator variable
-}
-
+// Update the display
 function updateDisplay() {
   const displayText = document.querySelector('#displayText');
   displayText.textContent = displayValue;
 }
 
+// Update the calculation text
 function updateCalculator() {
   const calculationText = document.querySelector('#calculationText');
-  calculationText.textContent = `${firstOperand} ${operator} ${secondOperand}`;
+  calculationText.textContent = `${firstOperand ? firstOperand : ''} ${operator ? operator : ''} ${secondOperand ? secondOperand : ''}`;
 }
-
 
 // Operator functions
 function operate(firstOperand, secondOperand, operator) {
   firstOperand = Number(firstOperand);
   secondOperand = Number(secondOperand);
 
+  if (operator === '/' && secondOperand === 0) {
+    return 'Error'; // Prevent division by zero
+  }
+
   switch (operator) {
     case '+':
-      return add(firstOperand, secondOperand);
+      return firstOperand + secondOperand;
     case '-':
-      return subtract(firstOperand, secondOperand);
-    case 'x':
-      return multiply(firstOperand, secondOperand);
+      return firstOperand - secondOperand;
+    case '*':
+      return firstOperand * secondOperand;
     case '/':
-      return divide(firstOperand, secondOperand);
+      return firstOperand / secondOperand;
+    default:
+      return secondOperand;
   }
 }
-
-
-// Arithmetic functions
-function add(firstOperand, secondOperand) {
-  return firstOperand + secondOperand;
-}
-
-function subtract(firstOperand, secondOperand) {
-  return firstOperand - secondOperand;
-}
-
-function multiply(firstOperand, secondOperand) {
-  return firstOperand * secondOperand;
-}
-
-function divide(firstOperand, secondOperand) {
-  return firstOperand / secondOperand;
-}
-
-
-
-
-
